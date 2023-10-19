@@ -13,7 +13,7 @@ echo -e "" | sudo add-apt-repository "deb [arch=amd64] https://download.docker.c
 #sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 apt-cache policy docker-ce
 sudo apt install docker-ce -y
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker saith
 # Uncomment below if challenged with Homebrew installation
 #git config --global --unset http.proxy
 #git config --global --unset https.proxy
