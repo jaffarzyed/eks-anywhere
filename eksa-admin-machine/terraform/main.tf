@@ -97,7 +97,7 @@ resource "null_resource" "virtual_machine_bootstrapper" {
   depends_on = [time_sleep.wait_for_vm]
   connection {
       type     = "ssh"
-      user     = "ubuntu"
+      user     = "saith"
       password = var.virtual_machine_root_password
       host     = var.virtual_machine_static_ip_address
   }
@@ -128,7 +128,7 @@ resource "null_resource" "eks_anywhere_provisioner" {
   depends_on = [time_sleep.wait_for_vm_to_finish_bootstrap]
   connection {
       type     = "ssh"
-      user     = "ubuntu"
+      user     = "saith"
       password = var.virtual_machine_root_password
       host     = var.virtual_machine_static_ip_address
       script_path = "/home/ubuntu/terraform_provisioner_%RAND%.sh"
@@ -155,7 +155,7 @@ resource "null_resource" "set_vsphere_credentials_in_profile" {
   depends_on = [null_resource.eks_anywhere_provisioner]
   connection {
       type     = "ssh"
-      user     = "ubuntu"
+      user     = "saith"
       password = var.virtual_machine_root_password
       host     = var.virtual_machine_static_ip_address
       script_path = "/home/ubuntu/terraform_provisioner_%RAND%.sh"
