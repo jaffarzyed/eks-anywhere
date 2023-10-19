@@ -131,7 +131,7 @@ resource "null_resource" "eks_anywhere_provisioner" {
       user     = "saith"
       password = var.virtual_machine_root_password
       host     = var.virtual_machine_static_ip_address
-      script_path = "/home/ubuntu/terraform_provisioner_%RAND%.sh"
+      script_path = "/home/saith/terraform_provisioner_%RAND%.sh"
   }
   // Without the first eval line, the brew installations will fail
   provisioner "remote-exec" {
@@ -158,7 +158,7 @@ resource "null_resource" "set_vsphere_credentials_in_profile" {
       user     = "saith"
       password = var.virtual_machine_root_password
       host     = var.virtual_machine_static_ip_address
-      script_path = "/home/ubuntu/terraform_provisioner_%RAND%.sh"
+      script_path = "/home/saith/terraform_provisioner_%RAND%.sh"
   }
   // The below will set the vsphere credentials in the ubuntu profile for EKSA cluster provisioning
   provisioner "remote-exec" {
